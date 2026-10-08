@@ -1,74 +1,212 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Saya</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(180deg, #eaf3ff 0%, #f7f9fc 100%);
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px 30px;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.18);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .header em {
+            display: block;
+            margin-top: 10px;
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .nav {
+            background: #1f9d6a;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin-right: 20px;
+            display: inline-block;
+            transition: 0.2s ease;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+            transform: translateY(-1px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 28px;
+        }
+
+        .main-content,
+        .sidebar {
+            background: rgba(255,255,255,0.96);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+            padding: 28px;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            color: #0f172a;
+            margin-top: 0;
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            border-bottom: 3px solid #fbbf24;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .date {
+            text-align: right;
+            font-style: italic;
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            color: #1d4ed8;
+            margin: 24px 0 10px;
+        }
+
+        p {
+            margin: 0 0 16px;
+            color: #374151;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 0 0 16px;
+            color: #374151;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar h3 {
+            margin-top: 0;
+            color: #0f172a;
+            font-size: 1.4rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #111827;
+            color: white;
+            text-align: right;
+            padding: 20px 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .nav a {
+                display: inline-block;
+                margin: 6px 12px 6px 0;
+            }
+
+            .main-content,
+            .sidebar {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
-<br>
 
-<body bgcolor="lightblue">
-    <!-- Halaman web tanpa CSS. Murni hanya memakai HTML -->
+<body>
+    <header class="header">
+        <h1>Website Naufal</h1>
+        <em>Bersama Naufal berkembang, dan berkarya melalui teknologi.</em>
+    </header>
 
-    <p>&nbsp;</p>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="./">Beranda</a>
+            <a href="tentangsaya.html">Tentang Saya</a>
+            <a href="kampusku.html">Kampusku</a>
+            <a href="syair-lagu.html">Syair Lagu</a>
+        </div>
+    </nav>
 
-    <table border="1" width="800px" cellpadding="12px" align="center" bgcolor="white">
+    <div class="container">
+        <div class="wrapper">
+            <main class="main-content">
+                <h2>Tentang Saya</h2>
+                <p class="date"><small><em>Rabu, 7 Oktober 2026</em></small></p>
 
-        <tr>
-            <td colspan="2" align="center" bgcolor="teal">
-                <font color="white">
-                    <p>&nbsp;</p>
-                    <h1>Website Naufal</h1>
-                    <p><em>Bersama Naufal berkembang, dan berkarya melalui teknologi.</em></p>
-                    <p>&nbsp;</p>
-                </font>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2" bgcolor="lightgreen">
-                <a href="./">Beranda</a> |
-                <a href="tentangsaya.html">Tentang Saya</a> |
-                <a href="kampusku.html">Kampusku</a> |
-                <a href="syair-lagu.html">Syair Lagu</a>
-            </td>
-        </tr>
-
-        <tr>
-            <td width="75%">
-
-                <!-- Content utama -->
-
-                <br>
-
-                <h3 align="center">Tentang Saya</h3>
-
-                <p align="right">
-                    <small><em>Rabu, 7 Oktober 2026</em></small>
+                <p>
+                    Halo, nama saya Naufal Abiyu Rifdan. Saya adalah seseorang yang memiliki ketertarikan terhadap dunia teknologi dan komputer, ada banyak sekali yang ingin saya pelajari.
                 </p>
 
                 <p>
-                    Halo, nama saya Naufal Abiyu Rifdan
-                    Saya adalah seseorang yang memiliki ketertarikan terhadap
-                    dunia teknologi dan komputer, ada banyak sekali yang ingin saya pelajarii.
-                </p>
-
-                <p>
-                    Saya lagi senang mempelajari berbagai hal yang berhubungan
-                    dengan teknologi, terutama pemrograman, pembuatan database,
-                    hardware, dan keamanan cyber
+                    Saya lagi senang mempelajari berbagai hal yang berhubungan dengan teknologi, terutama pemrograman, pembuatan database, hardware, dan keamanan cyber.
                 </p>
 
                 <h3>Data Diri</h3>
-
                 <ul>
                     <li>Nama: Naufal Abiyu Rifdan</li>
                     <li>Umur: 19 tahun</li>
-                    <li>Alamat : Telaga Bumi Asri Blok E No 1 Tangerang , Banten </li>
-                    <li>Hobi Saya : Ngoprek Hardware Handphone Android</li>
+                    <li>Alamat: Telaga Bumi Asri Blok E No 1 Tangerang, Banten</li>
+                    <li>Hobi Saya: Ngoprek Hardware Handphone Android</li>
                 </ul>
 
                 <h3>Hal yang Sedang Dipelajari Saat Ini</h3>
-
                 <ul>
                     <li>Membongkar Hardware Handphone</li>
                     <li>PHP</li>
@@ -79,42 +217,24 @@
                 </ul>
 
                 <p>
-                    Saya ingin terus mengembangkan kemampuan saya di bidang
-                    teknologi dan mendapatkan pengalaman melalui berbagai
-                    proyek yang saya kerjakan.
+                    Saya ingin terus mengembangkan kemampuan saya di bidang teknologi dan mendapatkan pengalaman melalui berbagai proyek yang saya kerjakan.
                 </p>
+            </main>
 
-                <!-- Akhir dari content utama -->
-
-            </td>
-
-            <td width="25%" valign="top" bgcolor="lightgrey">
-
-                <p>Tautan eksternal</p>
-
-                <ol>
-                    
+            <aside class="sidebar">
+                <h3>Tautan Eksternal</h3>
+                <ul>
                     <li><a href="https://github.com/naufalabiyurifdan-droid">Web Naufal</a></li>
                     <li><a href="https://github.com/">Github</a></li>
                     <li><a href="https://www.wikipedia.org/">Wikipedia</a></li>
                     <li><a href="https://www.w3schools.com/">W3Schools</a></li>
-                </ol>
+                </ul>
+            </aside>
+        </div>
+    </div>
 
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="2" align="right" bgcolor="black">
-                <font color="white">
-                    <small>&copy; Copyright Naufal Abiyu Rifdan, 2026.</small>
-                </font>
-            </td>
-        </tr>
-
-    </table>
-
-    <p>&nbsp;</p>
-
+    <footer class="footer">
+        <small>&copy; Copyright Naufal Abiyu Rifdan, 2026.</small>
+    </footer>
 </body>
-<br>
 </html>
