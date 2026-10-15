@@ -2,243 +2,85 @@
 <html lang="id">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Tentang Saya</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        /* Mengimpor font modern (tetap berada di dalam tag <style>) */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root{
-            --bg: linear-gradient(180deg, #f7fbff 0%, #fbfcff 100%);
+            --bg: linear-gradient(180deg,#f6f9ff 0%, #fcfeff 100%);
             --surface: #ffffff;
             --muted: #6b7280;
-            --accent: #2563eb; /* biru */
-            --accent-2: #0f766e; /* hijau */
             --text: #0f172a;
-            --soft-shadow: 0 6px 18px rgba(12, 18, 31, 0.06);
-            --soft-shadow-2: 0 10px 30px rgba(12, 18, 31, 0.08);
+            --accent: #2563eb;
+            --accent-2: #0f766e;
+            --soft-shadow: 0 10px 32px rgba(12,18,31,0.06);
+            --soft-shadow-2: 0 20px 56px rgba(12,18,31,0.09);
+            --radius: 14px;
+            --container:980px;
         }
 
-        *{box-sizing: border-box}
-
-        body {
-            margin: 0;
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+        *{box-sizing:border-box;}
+        html,body{height:100%; margin:0;}
+        body{
+            font-family:'Inter', system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+            background:var(--bg);
+            color:var(--text);
             -webkit-font-smoothing:antialiased;
-            -moz-osx-font-smoothing:grayscale;
-            line-height: 1.6;
-            font-weight: 400;
-            padding-bottom: 40px;
+            padding:40px 18px 60px;
         }
 
-        /* Header sederhana dan bersih */
-        .header{
-            background: transparent;
-            color: var(--text);
-            text-align: center;
-            padding: 40px 20px 28px;
-            margin: 28px auto 8px;
-            max-width: 1100px;
-        }
-
-        .header h1{
-            margin: 0;
-            font-size: clamp(1.8rem, 4vw, 2.6rem);
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--text);
-        }
-
-        .header em{
-            display: block;
-            margin-top: 8px;
-            color: var(--muted);
-            font-size: 0.98rem;
-            font-weight: 300;
-        }
-
-        /* Navigasi minimal */
-        .nav{
-            display: flex;
-            justify-content: center;
-            background: transparent;
-            padding: 6px 12px 18px;
-            margin-bottom: 10px;
-        }
-
-        .nav-container{
-            max-width: 1100px;
-            width: 100%;
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 0 20px;
-        }
-
-        .nav a{
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 10px;
-            transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
-            background: rgba(255,255,255,0.6);
-            box-shadow: 0 2px 6px rgba(12,18,31,0.04);
-            font-size: 0.95rem;
-        }
-
-        .nav a:hover{
-            transform: translateY(-4px);
-            box-shadow: var(--soft-shadow-2);
-            background: rgba(37,99,235,0.06);
-            color: var(--accent);
-        }
-
-        .container{
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .wrapper{
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 28px;
-            align-items: start;
-        }
-
-        /* Kartu dengan efek timbul (neumorphism ringan) */
-        .main-content,
-        .sidebar{
-            background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--surface));
-            border-radius: 14px;
-            padding: 30px;
-            box-shadow: var(--soft-shadow);
-            border: 1px solid rgba(12,18,31,0.03);
-            transition: transform 260ms cubic-bezier(.2,.9,.4,1), box-shadow 260ms ease;
-        }
-
-        .main-content:hover,
-        .sidebar:hover{
-            transform: translateY(-6px);
-            box-shadow: var(--soft-shadow-2);
-        }
-
-        .main-content h2{
-            text-align: center;
-            color: var(--text);
-            margin-top: 0;
-            font-size: clamp(1.4rem, 3vw, 1.9rem);
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 12px;
-            margin-bottom: 18px;
-        }
-
-        /* Underline halus menggunakan pseudo-element */
-        .main-content h2::after{
-            content: '';
-            display: block;
-            width: 64px;
-            height: 4px;
-            margin: 10px auto 0;
-            border-radius: 4px;
-            background: linear-gradient(90deg, var(--accent-2), var(--accent));
-            opacity: 0.95;
-        }
-
-        .date{
-            text-align: right;
-            font-style: italic;
-            color: var(--muted);
-            margin-bottom: 18px;
-            font-size: 0.95rem;
-        }
-
-        h3{
-            color: var(--text);
-            margin: 22px 0 10px;
-            font-size: 1.05rem;
-            font-weight: 600;
-        }
-
-        p{
-            margin: 0 0 14px;
-            color: #334155;
-            font-size: 1rem;
-        }
-
-        ul{
-            padding-left: 20px;
-            margin: 0 0 14px;
-            color: #334155;
-        }
-
-        li{
-            margin-bottom: 8px;
-            color: #374151;
-        }
-
-        .sidebar h3{
-            margin-top: 0;
-            color: var(--text);
-            font-size: 1.05rem;
-        }
-
-        .sidebar ul{
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .sidebar li{
-            margin-bottom: 0;
-        }
-
-        .sidebar a{
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 10px;
-            border-radius: 8px;
-            display: inline-block;
-            transition: background 180ms ease, transform 180ms ease;
-        }
-
-        .sidebar a:hover{
-            background: rgba(37,99,235,0.06);
-            transform: translateY(-3px);
-        }
-
-        .footer{
-            background: transparent;
-            color: var(--muted);
-            text-align: center;
-            padding: 22px 30px;
-            margin-top: 30px;
-            max-width: 1100px;
+        .header, .nav, .container, .footer {
+            max-width:var(--container);
             margin-left: auto;
             margin-right: auto;
-            border-radius: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
-        /* Responsif */
-        @media (max-width: 768px){
-            .wrapper{grid-template-columns: 1fr}
-            .nav-container{justify-content:flex-start; gap:8px}
-            .nav a{padding:6px 10px; font-size:0.92rem}
-            .main-content, .sidebar{padding:20px}
-            .header{padding:28px 16px}
-        }
+        .header{ text-align:center; padding:28px 0 12px; }
+        .header h1{ margin:0; font-size:clamp(1.6rem,4vw,2.2rem); font-weight:700; }
+        .header em{ display:block; color:var(--muted); font-weight:300; margin-top:8px;}
 
+        .nav{ display:flex; justify-content:center; padding:8px 0 18px; }
+        .nav-container{ display:flex; gap:10px; flex-wrap:wrap; justify-content:center; align-items:center; }
+        .nav a{ text-decoration:none; padding:8px 12px; border-radius:999px; background:rgba(255,255,255,0.6); border:1px solid rgba(12,18,31,0.04); color:var(--text); font-weight:600; transition:all 180ms ease; }
+        .nav a:hover{ transform:translateY(-4px); box-shadow:var(--soft-shadow-2); color:var(--accent); background:linear-gradient(90deg, rgba(37,99,235,0.06), rgba(15,118,110,0.04)); }
+
+        .container{ margin-top:6px; }
+        .wrapper{ display:grid; grid-template-columns:1fr 320px; gap:28px; align-items:start; max-width:var(--container); margin:0 auto; }
+
+        .main-content, .sidebar{
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), var(--surface));
+            border-radius:var(--radius);
+            padding:28px;
+            box-shadow:0 16px 40px rgba(12,18,31,0.06), -8px -8px 24px rgba(255,255,255,0.7);
+            border:1px solid rgba(12,18,31,0.04);
+            transition:transform 260ms cubic-bezier(.2,.9,.4,1), box-shadow 260ms ease;
+        }
+        .main-content:hover, .sidebar:hover { transform:translateY(-8px); box-shadow:var(--soft-shadow-2); }
+
+        .main-content h2{ text-align:center; margin-top:0; font-size:clamp(1.25rem,3vw,1.8rem); font-weight:700; }
+        .main-content h2::after{ content:''; display:block; width:64px; height:4px; margin:10px auto 0; border-radius:4px; background:linear-gradient(90deg,var(--accent-2),var(--accent)); }
+
+        .date{ text-align:right; color:var(--muted); font-style:italic; margin-bottom:14px; }
+        h3{ margin:18px 0 8px; font-weight:600; }
+        p{ margin:0 0 12px; color:#334155; line-height:1.6; }
+        ul{ padding-left:1rem; margin:0 0 12px; color:#334155; }
+        li{ margin-bottom:8px; color:#374151; }
+
+        .sidebar h3{ margin-top:0; }
+        .sidebar ul{ list-style:none; padding-left:0; margin:0; display:flex; flex-direction:column; gap:8px; }
+        .sidebar a{ color:var(--accent); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px; display:inline-block; transition:transform 180ms ease, background 180ms ease; }
+        .sidebar a:hover{ transform:translateY(-3px); background:rgba(37,99,235,0.06); }
+
+        .footer{ text-align:center; color:var(--muted); margin-top:28px; }
+
+        @media (max-width:900px){
+            .wrapper{ grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
