@@ -7,165 +7,238 @@
     <title>Tentang Saya</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
-        * { box-sizing: border-box; }
+        /* Mengimpor font modern (tetap berada di dalam tag <style>) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root{
+            --bg: linear-gradient(180deg, #f7fbff 0%, #fbfcff 100%);
+            --surface: #ffffff;
+            --muted: #6b7280;
+            --accent: #2563eb; /* biru */
+            --accent-2: #0f766e; /* hijau */
+            --text: #0f172a;
+            --soft-shadow: 0 6px 18px rgba(12, 18, 31, 0.06);
+            --soft-shadow-2: 0 10px 30px rgba(12, 18, 31, 0.08);
+        }
+
+        *{box-sizing: border-box}
+
         body {
             margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(180deg, #eaf3ff 0%, #f7f9fc 100%);
-            color: #1f2937;
-            line-height: 1.7;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            line-height: 1.6;
+            font-weight: 400;
+            padding-bottom: 40px;
         }
 
-        .header {
-            background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%);
-            color: white;
+        /* Header sederhana dan bersih */
+        .header{
+            background: transparent;
+            color: var(--text);
             text-align: center;
-            padding: 40px 20px 30px;
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.18);
+            padding: 40px 20px 28px;
+            margin: 28px auto 8px;
+            max-width: 1100px;
         }
 
-        .header h1 {
+        .header h1{
             margin: 0;
-            font-size: clamp(2rem, 4vw, 3rem);
-        }
-
-        .header em {
-            display: block;
-            margin-top: 10px;
-            font-size: 1.05rem;
-            opacity: 0.95;
-        }
-
-        .nav {
-            background: #1f9d6a;
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-
-        .nav-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 12px 20px;
-        }
-
-        .nav a {
-            color: white;
-            text-decoration: none;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
             font-weight: 600;
-            margin-right: 20px;
-            display: inline-block;
-            transition: 0.2s ease;
+            letter-spacing: -0.02em;
+            color: var(--text);
         }
 
-        .nav a:hover {
-            text-decoration: underline;
-            transform: translateY(-1px);
+        .header em{
+            display: block;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 0.98rem;
+            font-weight: 300;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
-
-        .wrapper {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 28px;
-        }
-
-        .main-content,
-        .sidebar {
-            background: rgba(255,255,255,0.96);
-            border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
-            padding: 28px;
-        }
-
-        .main-content h2 {
-            text-align: center;
-            color: #0f172a;
-            margin-top: 0;
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            border-bottom: 3px solid #fbbf24;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-
-        .date {
-            text-align: right;
-            font-style: italic;
-            color: #64748b;
-            margin-bottom: 18px;
-        }
-
-        h3 {
-            color: #1d4ed8;
-            margin: 24px 0 10px;
-        }
-
-        p {
-            margin: 0 0 16px;
-            color: #374151;
-        }
-
-        ul {
-            padding-left: 20px;
-            margin: 0 0 16px;
-            color: #374151;
-        }
-
-        li {
-            margin-bottom: 8px;
-        }
-
-        .sidebar h3 {
-            margin-top: 0;
-            color: #0f172a;
-            font-size: 1.4rem;
-        }
-
-        .sidebar ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .sidebar li {
+        /* Navigasi minimal */
+        .nav{
+            display: flex;
+            justify-content: center;
+            background: transparent;
+            padding: 6px 12px 18px;
             margin-bottom: 10px;
         }
 
-        .sidebar a {
-            color: #2563eb;
+        .nav-container{
+            max-width: 1100px;
+            width: 100%;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+        }
+
+        .nav a{
+            color: var(--text);
             text-decoration: none;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease;
+            background: rgba(255,255,255,0.6);
+            box-shadow: 0 2px 6px rgba(12,18,31,0.04);
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover{
+            transform: translateY(-4px);
+            box-shadow: var(--soft-shadow-2);
+            background: rgba(37,99,235,0.06);
+            color: var(--accent);
+        }
+
+        .container{
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .wrapper{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* Kartu dengan efek timbul (neumorphism ringan) */
+        .main-content,
+        .sidebar{
+            background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--surface));
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: var(--soft-shadow);
+            border: 1px solid rgba(12,18,31,0.03);
+            transition: transform 260ms cubic-bezier(.2,.9,.4,1), box-shadow 260ms ease;
+        }
+
+        .main-content:hover,
+        .sidebar:hover{
+            transform: translateY(-6px);
+            box-shadow: var(--soft-shadow-2);
+        }
+
+        .main-content h2{
+            text-align: center;
+            color: var(--text);
+            margin-top: 0;
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+        }
+
+        /* Underline halus menggunakan pseudo-element */
+        .main-content h2::after{
+            content: '';
+            display: block;
+            width: 64px;
+            height: 4px;
+            margin: 10px auto 0;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent-2), var(--accent));
+            opacity: 0.95;
+        }
+
+        .date{
+            text-align: right;
+            font-style: italic;
+            color: var(--muted);
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+        }
+
+        h3{
+            color: var(--text);
+            margin: 22px 0 10px;
+            font-size: 1.05rem;
             font-weight: 600;
         }
 
-        .sidebar a:hover {
-            text-decoration: underline;
+        p{
+            margin: 0 0 14px;
+            color: #334155;
+            font-size: 1rem;
         }
 
-        .footer {
-            background: #111827;
-            color: white;
-            text-align: right;
-            padding: 20px 30px;
+        ul{
+            padding-left: 20px;
+            margin: 0 0 14px;
+            color: #334155;
+        }
+
+        li{
+            margin-bottom: 8px;
+            color: #374151;
+        }
+
+        .sidebar h3{
+            margin-top: 0;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .sidebar ul{
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar li{
+            margin-bottom: 0;
+        }
+
+        .sidebar a{
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 10px;
+            border-radius: 8px;
+            display: inline-block;
+            transition: background 180ms ease, transform 180ms ease;
+        }
+
+        .sidebar a:hover{
+            background: rgba(37,99,235,0.06);
+            transform: translateY(-3px);
+        }
+
+        .footer{
+            background: transparent;
+            color: var(--muted);
+            text-align: center;
+            padding: 22px 30px;
             margin-top: 30px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 8px;
         }
 
-        @media (max-width: 768px) {
-            .wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .nav a {
-                display: inline-block;
-                margin: 6px 12px 6px 0;
-            }
-
-            .main-content,
-            .sidebar {
-                padding: 20px;
-            }
+        /* Responsif */
+        @media (max-width: 768px){
+            .wrapper{grid-template-columns: 1fr}
+            .nav-container{justify-content:flex-start; gap:8px}
+            .nav a{padding:6px 10px; font-size:0.92rem}
+            .main-content, .sidebar{padding:20px}
+            .header{padding:28px 16px}
         }
+
     </style>
 </head>
 
