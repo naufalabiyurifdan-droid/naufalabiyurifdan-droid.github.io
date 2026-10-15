@@ -2,8 +2,153 @@
 <html lang="id">
     
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Beranda</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        /* Internal CSS: minimal, modern, subtle timbul (neumorphism) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+        :root{
+            --bg: linear-gradient(180deg,#f6f9ff 0%, #fcfeff 100%);
+            --surface: #ffffff;
+            --muted: #6b7280;
+            --text: #0f172a;
+            --accent: #2563eb;
+            --soft-shadow: 0 10px 30px rgba(12,18,31,0.06);
+            --soft-shadow-2: 0 18px 48px rgba(12,18,31,0.08);
+            --radius-lg: 14px;
+            --container-w: 980px;
+        }
+
+        /* Reset & base */
+        *, *::before, *::after { box-sizing: border-box; }
+        html,body { height:100%; margin:0; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Make the old table act like a centered card */
+        table {
+            width: 100% !important;
+            max-width: var(--container-w);
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(255,255,255,0.96), var(--surface));
+            border-radius: var(--radius-lg);
+            box-shadow: var(--soft-shadow);
+            overflow: hidden;
+            border: 1px solid rgba(12,18,31,0.04);
+        }
+
+        /* Cells & spacing */
+        td {
+            padding: 20px !important;
+            vertical-align: top;
+        }
+
+        /* Header row (kept visual but restyled) */
+        table td[align="center"] h1,
+        table h1 {
+            margin: 0;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        table td[align="center"] em {
+            display: block;
+            color: var(--muted);
+            margin-top: 8px;
+            font-weight: 300;
+        }
+
+        /* Replace harsh background colors with subtle accents while not touching body */
+        /* Target rows by their background attribute values (existing HTML uses bgcolor) */
+        td[bgcolor="teal"] {
+            background: linear-gradient(90deg, rgba(37,99,235,0.95), rgba(15,118,110,0.9));
+            color: #fff;
+            text-align: center;
+            padding: 28px 20px !important;
+        }
+
+        td[bgcolor="lightgreen"] {
+            background: transparent;
+            padding: 12px 20px !important;
+            text-align: center;
+        }
+
+        td[bgcolor="black"] {
+            background: transparent;
+            padding: 14px 20px !important;
+            color: var(--muted);
+        }
+
+        /* Navigation links: pill-like */
+        table a {
+            color: var(--text);
+            text-decoration: none;
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
+            border: 1px solid rgba(12,18,31,0.04);
+            background: rgba(255,255,255,0.6);
+            margin: 0 6px;
+        }
+        table a:hover, table a:focus {
+            transform: translateY(-4px);
+            box-shadow: var(--soft-shadow-2);
+            color: var(--accent);
+            background: linear-gradient(90deg, rgba(37,99,235,0.06), rgba(15,118,110,0.04));
+            outline: none;
+        }
+
+        /* Main content typography */
+        h2, h3, h4 {
+            color: var(--text);
+            margin: 0 0 12px 0;
+            font-weight: 600;
+        }
+        p { color: #334155; margin: 0 0 14px; line-height: 1.6; }
+        small em { color: var(--muted); }
+
+        /* Images responsive and subtle lift */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 12px 0;
+            box-shadow: 0 8px 22px rgba(12,18,31,0.06);
+            transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+        img:hover { transform: translateY(-6px); box-shadow: var(--soft-shadow-2); }
+
+        /* Sidebar list */
+        ul { padding-left: 1rem; margin: 0 0 8px 0; color: #374151; }
+        td[bgcolor="lightgrey"] { background: transparent; }
+
+        /* Footer right aligned text refinement */
+        td[align="right"], table td[bgcolor="black"] p { color: var(--muted); font-size: 0.92rem; margin:0; }
+
+        /* Responsive tweaks: stack columns on small screens */
+        @media (max-width: 820px){
+            table { width: 100%; }
+            td { display: block; width: 100%; }
+            td[width="75%"], td[width="25%"], td[width="25%"] { width: 100% !important; }
+        }
+    </style>
 </head>
 <br>
 
